@@ -24,5 +24,8 @@ namespace PC_Timer
         {
             InitializeComponent();
         }
+        //// Programmatic use of string resource from StringResources.xaml resource dictionary
+        //string localizedMessage = (string)Application.Current.FindResource("localizedMessage");
+        //MessageBox.Show(localizedMessage);
     }
 }
