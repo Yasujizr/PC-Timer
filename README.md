@@ -1,16 +1,20 @@
 # PC-Timer
 ```diff
-- At this Point this is only a Empty WPF Project. In future commits, there will be a working Version.
+- There is not much at this Point.
 ```
 
 ### With this Programm, you can set a Time when your PC should shutdown.
 ---
 Working:
-- Nothing
+- Change Language
 
 Planned:
 - comming soon
 
+ToDo:
+- Save last language to file
+- Better Info MessageBox
+
 ---
-Note: this Programm is not working at this moment. A working Version will comming soon. When there is a working commit, the issues page will be open.
+Note: This Project is still in early development. Don't expect too much. When there is a working Version, I will release a prerelease version. 
 
