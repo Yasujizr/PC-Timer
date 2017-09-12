@@ -4,6 +4,13 @@
   xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <!-- String resource that can be localized -->
-    <system:String x:Key="localizedMessage">de-DE Message</system:String>
+    <system:String x:Key="menu_lang">Sprache</system:String>
+    <system:String x:Key="menu_de">Deutsch</system:String>
+    <system:String x:Key="menu_en">Englisch</system:String>
+
+    <system:String x:Key="menu_help">Hilfe</system:String>
+    <system:String x:Key="menu_info">Info</system:String>
+    <system:String x:Key="menu_code">Quellcode</system:String>
+    <system:String x:Key="menu_error">Fehler melden</system:String>
 
 </ResourceDictionary>

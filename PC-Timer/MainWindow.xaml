@@ -7,7 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="{StaticResource localizedMessage}" HorizontalAlignment="Left" Margin="126,231,0,0" VerticalAlignment="Top" Width="75"/>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem x:Name="menu_lang"  Header="{DynamicResource menu_lang}">
+                    <MenuItem x:Name="MenItem_de" Header="{DynamicResource menu_de}" Click="MenItem_de_Click" >
+                        <MenuItem.Icon>
+                            <RadioButton x:Name="MenRadio_de" GroupName="radio_lang" Checked="MenRadio_de_Checked" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="MenItem_en" Header="{DynamicResource menu_en}" Click="MenItem_en_Click">
+                        <MenuItem.Icon>
+                            <RadioButton x:Name="MenRadio_en" GroupName="radio_lang" Checked="MenRadio_en_Checked" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource menu_help}">
+                    <MenuItem x:Name="MenCode" Header="{DynamicResource menu_code}" Click="MenCode_Click" />
+                    <MenuItem x:Name="MenError" Header="{DynamicResource menu_error}" Click="MenError_Click" />
+                    <Separator />
+                    <MenuItem x:Name="MenInfo" Header="{DynamicResource menu_info}" Click="MenInfo_Click" />
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+
 
     </Grid>
 </Window>
