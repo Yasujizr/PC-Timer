@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Timer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="PC-Timer" Height="350" Width="525" WindowStartupLocation="CenterOwner">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <DockPanel>
-            <Menu DockPanel.Dock="Top">
+            <Menu DockPanel.Dock="Top" Grid.Row="0">
                 <MenuItem x:Name="menu_lang"  Header="{DynamicResource menu_lang}">
                     <MenuItem x:Name="MenItem_de" Header="{DynamicResource menu_de}" Click="MenItem_de_Click" >
                         <MenuItem.Icon>
@@ -28,9 +35,63 @@
                     <MenuItem x:Name="MenInfo" Header="{DynamicResource menu_info}" Click="MenInfo_Click" />
                 </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
         </DockPanel>
+        <TabControl x:Name="tabControl"  VerticalAlignment="Top" Grid.Row="1">
+            <TabItem Header="{DynamicResource tab_time}">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="{DynamicResource label_hour}" Grid.Row="0" Grid.Column="0"/>
+                    <TextBox x:Name="txtbox_hour" Grid.Row="0" Grid.Column="1" Text="0" />
+                    <Label Content="{DynamicResource label_min}" Grid.Row="1" Grid.Column="0"/>
+                    <TextBox x:Name="txtbox_min" Grid.Row="1" Grid.Column="1" Text="0"/>
+                    <Label Content="{DynamicResource label_sec}" Grid.Row="2" Grid.Column="0"/>
+                    <TextBox x:Name="textbox_sec" Grid.Row="2" Grid.Column="1" Text="0"/>
 
-
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource tab_date}">
+                <Grid Background="#FFE5E5E5">
+                    <xctk:DateTimePicker x:Name="datetimepicker_date" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="2">
+            <!--
+               On Top and Bottom and on both sides should be free space so that it look better
+            -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                <ComboBoxItem Content="{DynamicResource dropdown_shutdown}" IsEnabled="True" />
+                <ComboBoxItem Content="{DynamicResource dropdown_restart}" />
+                <ComboBoxItem Content="{DynamicResource dropdown_suspend}" />
+                <ComboBoxItem Content="{DynamicResource dropdown_logout}" />
+            </ComboBox>
+            <CheckBox x:Name="checkBox_sleep" Content="{DynamicResource checkbox_sleep}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <Button Grid.Row="5" Grid.Column="1" Content="{DynamicResource btn_start}"/>
+            <Button Grid.Row="5" Grid.Column="3" Content="{DynamicResource btn_stop}"/>
+        </Grid>
     </Grid>
 </Window>

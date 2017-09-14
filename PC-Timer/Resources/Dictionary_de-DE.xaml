@@ -7,10 +7,26 @@
     <system:String x:Key="menu_lang">Sprache</system:String>
     <system:String x:Key="menu_de">Deutsch</system:String>
     <system:String x:Key="menu_en">Englisch</system:String>
-
     <system:String x:Key="menu_help">Hilfe</system:String>
     <system:String x:Key="menu_info">Info</system:String>
     <system:String x:Key="menu_code">Quellcode</system:String>
     <system:String x:Key="menu_error">Fehler melden</system:String>
+
+    <system:String x:Key="tab_time">Zeit</system:String>
+    <system:String x:Key="tab_date">Datum</system:String>
+
+    <system:String x:Key="label_hour">Stunden</system:String>
+    <system:String x:Key="label_min">Minuten</system:String>
+    <system:String x:Key="label_sec">Sekunden</system:String>
+
+    <system:String x:Key="checkbox_sleep">Verhindere Standby</system:String>
+
+    <system:String x:Key="dropdown_shutdown">Herunterfahren</system:String>
+    <system:String x:Key="dropdown_restart">Neustart</system:String>
+    <system:String x:Key="dropdown_suspend">Ruhezustand</system:String>
+    <system:String x:Key="dropdown_logout">Benutzer Abmelden</system:String>
+
+    <system:String x:Key="btn_start">Starte Timer</system:String>
+    <system:String x:Key="btn_stop">Beende Timer</system:String>
 
 </ResourceDictionary>

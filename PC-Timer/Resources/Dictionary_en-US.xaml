@@ -7,10 +7,12 @@
     <system:String x:Key="menu_lang">Language</system:String>
     <system:String x:Key="menu_de">German</system:String>
     <system:String x:Key="menu_en">English</system:String>
-
     <system:String x:Key="menu_help">Help</system:String>
     <system:String x:Key="menu_info">Info</system:String>
     <system:String x:Key="menu_code">Sourcecode</system:String>
     <system:String x:Key="menu_error">Report error</system:String>
+
+    <system:String x:Key="tab_time">Time</system:String>
+    <system:String x:Key="tab_date">Date</system:String>
 
 </ResourceDictionary>

@@ -16,20 +16,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PC_Timer
-{
+namespace PC_Timer {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class MainWindow :Window {
+        public MainWindow() {
             InitializeComponent();
 
             //Checks wich Lang is set and checks the radiobutton
-            switch (Thread.CurrentThread.CurrentCulture.Name)
-            {
+            switch(Thread.CurrentThread.CurrentCulture.Name) {
                 case "de-DE":
                     MenRadio_de.IsChecked = true;
                     break;
@@ -39,20 +35,20 @@ namespace PC_Timer
                 default:
                     MenRadio_en.IsChecked = true;
                     break;
+                }
+            datetimepicker_date.Minimum = DateTime.Now;
+            datetimepicker_date.Value = DateTime.Now;
             }
-        }
 
 
-        private void SetLanguageDictionary(CultureInfo newCulture)
-        {
+        private void SetLanguageDictionary(CultureInfo newCulture) {
             //
             //Changes the Language depending on the localisation. Default is en-US
             //
             CultureInfo.DefaultThreadCurrentCulture = newCulture;
             CultureInfo.DefaultThreadCurrentUICulture = newCulture;
             ResourceDictionary dict = new ResourceDictionary();
-            switch (Thread.CurrentThread.CurrentCulture.ToString())
-            {
+            switch(Thread.CurrentThread.CurrentCulture.ToString()) {
                 case "en-US":
                     dict.Source = new Uri("..\\Resources\\Dictionary_en-US.xaml", UriKind.Relative);
                     break;
@@ -62,9 +58,9 @@ namespace PC_Timer
                 default:
                     dict.Source = new Uri("..\\Resources\\Dictionary_en-US.xaml", UriKind.Relative);
                     break;
-            }
+                }
             this.Resources.MergedDictionaries.Add(dict);
-        }
+            }
 
         // TODO Does not work right. Is creating new lines instead of editing a line. I do this later or not...
 
@@ -130,45 +126,41 @@ namespace PC_Timer
 
         //}
 
-        private void MenRadio_en_Checked(object sender, RoutedEventArgs e)
-        {
+        private void MenRadio_en_Checked(object sender, RoutedEventArgs e) {
             SetLanguageDictionary(new CultureInfo("en-US"));
+            datetimepicker_date.CultureInfo = new CultureInfo("en-US");
             //string text = "lang=en-US";
             //WriteToConfig(text);
 
-        }
+            }
 
-        private void MenRadio_de_Checked(object sender, RoutedEventArgs e)
-        {
+        private void MenRadio_de_Checked(object sender, RoutedEventArgs e) {
             SetLanguageDictionary(new CultureInfo("de-DE"));
+            datetimepicker_date.CultureInfo = new CultureInfo("de-DE");
             //string text = "lang=de-DE";
             //WriteToConfig(text);
-        }
+            }
 
-        private void MenItem_en_Click(object sender, RoutedEventArgs e)
-        {
+        private void MenItem_en_Click(object sender, RoutedEventArgs e) {
             MenRadio_en.IsChecked = true;
-        }
+            }
 
-        private void MenItem_de_Click(object sender, RoutedEventArgs e)
-        {
+        private void MenItem_de_Click(object sender, RoutedEventArgs e) {
             MenRadio_de.IsChecked = true;
-        }
+            }
 
-        private void MenCode_Click(object sender, RoutedEventArgs e)
-        {
+        private void MenCode_Click(object sender, RoutedEventArgs e) {
             System.Diagnostics.Process.Start("https://github.com/Hundhausen/PC-Timer");
-        }
+            }
 
-        private void MenError_Click(object sender, RoutedEventArgs e)
-        {
+        private void MenError_Click(object sender, RoutedEventArgs e) {
             System.Diagnostics.Process.Start("https://github.com/Hundhausen/PC-Timer/issues");
-        }
+            }
 
-        private void MenInfo_Click(object sender, RoutedEventArgs e)
-        {
+        private void MenInfo_Click(object sender, RoutedEventArgs e) {
             //TODO better Version
             MessageBox.Show("PC-Timer created by Jean-Pierre Hundhausen\nMy Github: https://github.com/Hundhausen", "Info");
+            }
+
         }
     }
-}
