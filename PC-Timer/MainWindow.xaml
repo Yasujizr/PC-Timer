@@ -37,7 +37,7 @@
             </Menu>
         </DockPanel>
         <TabControl x:Name="tabControl"  VerticalAlignment="Top" Grid.Row="1">
-            <TabItem Header="{DynamicResource tab_time}">
+            <TabItem x:Name="tab_time" Header="{DynamicResource tab_time}">
                 <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -53,11 +53,11 @@
                     <Label Content="{DynamicResource label_min}" Grid.Row="1" Grid.Column="0"/>
                     <TextBox x:Name="txtbox_min" Grid.Row="1" Grid.Column="1" Text="0"/>
                     <Label Content="{DynamicResource label_sec}" Grid.Row="2" Grid.Column="0"/>
-                    <TextBox x:Name="textbox_sec" Grid.Row="2" Grid.Column="1" Text="0"/>
+                    <TextBox x:Name="txtbox_sec" Grid.Row="2" Grid.Column="1" Text="0"/>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource tab_date}">
+            <TabItem x:Name="tab_date" Header="{DynamicResource tab_date}">
                 <Grid Background="#FFE5E5E5">
                     <xctk:DateTimePicker x:Name="datetimepicker_date" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Grid>
@@ -83,15 +83,16 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                <ComboBoxItem Content="{DynamicResource dropdown_shutdown}" IsEnabled="True" />
+            <ComboBox x:Name="combo_art" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" SelectedIndex="0">
+                <ComboBoxItem Content="{DynamicResource dropdown_shutdown}" />
                 <ComboBoxItem Content="{DynamicResource dropdown_restart}" />
                 <ComboBoxItem Content="{DynamicResource dropdown_suspend}" />
                 <ComboBoxItem Content="{DynamicResource dropdown_logout}" />
             </ComboBox>
-            <CheckBox x:Name="checkBox_sleep" Content="{DynamicResource checkbox_sleep}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
-            <Button Grid.Row="5" Grid.Column="1" Content="{DynamicResource btn_start}"/>
-            <Button Grid.Row="5" Grid.Column="3" Content="{DynamicResource btn_stop}"/>
+            <CheckBox x:Name="checkBox_sleep" Content="{DynamicResource checkbox_sleep}" Grid.Row="3" Grid.Column="1" Unchecked="checkBox_sleep_Unchecked"/>
+            <CheckBox x:Name="checkBox_display" Content="{DynamicResource checkbox_display}" Grid.Row="3" Grid.Column="3" ToolTip="{DynamicResource tooltip_displayonlywhen}" Checked="checkBox_display_Checked"/>
+            <Button x:Name="btn_start" Grid.Row="5" Grid.Column="1" Content="{DynamicResource btn_start}" Click="btn_start_Click"/>
+            <Button x:Name="btn_stop" Grid.Row="5" Grid.Column="3" Content="{DynamicResource btn_stop}" Click="btn_stop_Click"/>
         </Grid>
     </Grid>
 </Window>

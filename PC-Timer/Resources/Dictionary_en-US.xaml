@@ -15,4 +15,33 @@
     <system:String x:Key="tab_time">Time</system:String>
     <system:String x:Key="tab_date">Date</system:String>
 
+    <system:String x:Key="label_hour">Hours</system:String>
+    <system:String x:Key="label_min">Minutes</system:String>
+    <system:String x:Key="label_sec">Seconds</system:String>
+
+    <system:String x:Key="tooltip_displayonlywhen">Monitor only can be set active, when the PC is not allowed to go into standby</system:String>
+
+    <system:String x:Key="checkbox_sleep">Avoid Standby</system:String>
+    <system:String x:Key="checkbox_display">Keep Monitor active</system:String>
+
+    <system:String x:Key="dropdown_shutdown">Shutdown</system:String>
+    <system:String x:Key="dropdown_restart">Restart</system:String>
+    <system:String x:Key="dropdown_suspend">Hybernate</system:String>
+    <system:String x:Key="dropdown_logout">Logout user</system:String>
+
+    <system:String x:Key="btn_start">Start timer</system:String>
+    <system:String x:Key="btn_stop">Stop timer</system:String>
+
+    <system:String x:Key="msgbox_fail_head">Error - Timer got not started</system:String>
+    <system:String x:Key="msgbox_fail_txt">Timer got not started because of an unknown error</system:String>
+    <system:String x:Key="msgbox_noint_txt">Timer got not started because only numbers are allowed</system:String>
+    <system:String x:Key="msgbox_dateoutofrange_txt">Timer got not started because the date is set to a past date</system:String>
+    <system:String x:Key="msgbox_start_head">Timer got started</system:String>
+    <system:String x:Key="msgbox_start_shutodown_txt">Timer got started. The PC will shutdown as planed</system:String>
+    <system:String x:Key="msgbox_start_restart_txt">Timer got started. The PC will restart as planed</system:String>
+    <system:String x:Key="msgbox_start_suspend_txt">Timer got started. The PC will hybernate as planed</system:String>
+    <system:String x:Key="msgbox_start_logout_txt">Timer got started. The user will got logged out as planed</system:String>
+    <system:String x:Key="msgbox_abort_head">Timer stopped</system:String>
+    <system:String x:Key="msgbox_abort_txt">Timer got stopped</system:String>
+
 </ResourceDictionary>

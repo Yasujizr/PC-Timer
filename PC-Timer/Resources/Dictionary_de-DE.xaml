@@ -19,7 +19,10 @@
     <system:String x:Key="label_min">Minuten</system:String>
     <system:String x:Key="label_sec">Sekunden</system:String>
 
+    <system:String x:Key="tooltip_displayonlywhen">Monitor kann nur aktiv gelassen werden, wenn auch der Standby verhindert wird</system:String>
+
     <system:String x:Key="checkbox_sleep">Verhindere Standby</system:String>
+    <system:String x:Key="checkbox_display">Monitor aktiv lassen</system:String>
 
     <system:String x:Key="dropdown_shutdown">Herunterfahren</system:String>
     <system:String x:Key="dropdown_restart">Neustart</system:String>
@@ -29,4 +32,16 @@
     <system:String x:Key="btn_start">Starte Timer</system:String>
     <system:String x:Key="btn_stop">Beende Timer</system:String>
 
+    <system:String x:Key="msgbox_fail_head">Fehler - Timer nicht gestartet</system:String>
+    <system:String x:Key="msgbox_fail_txt">Timer wurde nicht gestartet aufgrund eines unbekannten Fehlers</system:String>
+    <system:String x:Key="msgbox_noint_txt">Timer wurde nicht gestartet da nicht nur Zahlen eingegeben wurden</system:String>
+    <system:String x:Key="msgbox_dateoutofrange_txt">Timer wurde nicht gestartet da das ausgewählte Datum in der Vegangenheit liegt</system:String>
+    <system:String x:Key="msgbox_start_head">Timer gestartet</system:String>
+    <system:String x:Key="msgbox_start_shutodown_txt">Timer wurde gestartet. Der PC wir planmäßig heruntergefahren</system:String>
+    <system:String x:Key="msgbox_start_restart_txt">Timer wurde gestartet. Der PC wir planmäßig neugestartet</system:String>
+    <system:String x:Key="msgbox_start_suspend_txt">Timer wurde gestartet. Der PC wir planmäßig in den Ruhezustand versetzt</system:String>
+    <system:String x:Key="msgbox_start_logout_txt">Timer wurde gestartet. Der Benutzer wird planmäßig abgemeldet</system:String>
+    <system:String x:Key="msgbox_abort_head">Timer abgebrochen</system:String>
+    <system:String x:Key="msgbox_abort_txt">Timer wurde abgebrochen</system:String>
+    
 </ResourceDictionary>
