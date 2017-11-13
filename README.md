@@ -5,6 +5,7 @@
 
 Planned:
 - progressbar and time when event is planned
+- scrollable time for mouse only usage
 
 ToDo / Known Bugs:
 - Save last language to file
