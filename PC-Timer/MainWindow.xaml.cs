@@ -6,6 +6,8 @@ using System.Threading;
 using System.Windows;
 using System.Xml;
 using System.Xml.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace PC_Timer {
 
@@ -82,7 +84,7 @@ namespace PC_Timer {
             }
 
         public static void write_lang_settings(string lang) {
-            new XDocument(
+                new XDocument(
                 new XElement("settings",
                     new XComment("If set to false, no window will show up on startup of this programm"),
                     new XElement("language", lang)
