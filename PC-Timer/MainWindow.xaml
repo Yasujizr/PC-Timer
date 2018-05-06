@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PC_Timer"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="PC-Timer" Height="350" Width="525" WindowStartupLocation="CenterOwner">
+        Title="PC-Timer" Height="350" Width="525" WindowStartupLocation="CenterOwner" Icon="PC-Timer Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

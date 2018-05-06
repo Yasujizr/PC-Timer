@@ -1,42 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace PC_Timer {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow :Window {
+        const string config_file = "config.xml";
         public MainWindow() {
             InitializeComponent();
 
-            //Checks wich Lang is set and checks the radiobutton
-            switch(Thread.CurrentThread.CurrentCulture.Name) {
-                case "de-DE":
-                    MenRadio_de.IsChecked = true;
-                    break;
-                case "en-US":
-                    MenRadio_en.IsChecked = true;
-                    break;
-                default:
-                    MenRadio_en.IsChecked = true;
-                    break;
+            //Checks if there is the config file, reads the language and sets it. When there is no config file, it reads the culture from the PC and sets it when its avaible
+            string culture;
+            if(!File.Exists(config_file)) {
+                culture = Thread.CurrentThread.CurrentCulture.Name;
                 }
+            else {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(config_file);
+                XmlNode node = doc.DocumentElement.SelectSingleNode("/settings/language");
+                culture = (node.InnerText);
+                }
+            switch(culture) {
+                    case "de-DE":
+                        MenRadio_de.IsChecked = true;
+                        write_lang_settings("de-DE");
+                        break;
+                    case "en-US":
+                        MenRadio_en.IsChecked = true;
+                        write_lang_settings("en-US");
+                        break;
+                    default:
+                        MenRadio_en.IsChecked = true;
+                        write_lang_settings("en-US");
+                        break;
+                    }
+ 
             datetimepicker_date.Minimum = DateTime.Now;
             datetimepicker_date.Value = DateTime.Now;
             }
@@ -64,80 +67,29 @@ namespace PC_Timer {
             switch(Thread.CurrentThread.CurrentCulture.ToString()) {
                 case "en-US":
                     dict.Source = new Uri("..\\Resources\\Dictionary_en-US.xaml", UriKind.Relative);
+                    write_lang_settings("en-US");
                     break;
                 case "de-DE":
                     dict.Source = new Uri("..\\Resources\\Dictionary_de-DE.xaml", UriKind.Relative);
+                    write_lang_settings("de-DE");
                     break;
                 default:
                     dict.Source = new Uri("..\\Resources\\Dictionary_en-US.xaml", UriKind.Relative);
+                    write_lang_settings("en-US");
                     break;
                 }
             this.Resources.MergedDictionaries.Add(dict);
             }
 
-        // TODO Does not work right. Is creating new lines instead of editing a line. I do this later or not...
-
-        //private void WriteToConfig(string text)
-        //{
-        //    //This Function should find a given setting and then replace it. When there is no file, it gets created and the line gets written
-        //    //
-        //    //I hate this
-
-        //    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\PC-Timer";
-        //    string file = "\\settings.config";
-        //    if (!Directory.Exists(path))
-        //    {
-        //        Directory.CreateDirectory(path);
-        //    }
-        //    if (!File.Exists(path + file))
-        //    {
-        //        FileStream fs = new FileStream(path + file, FileMode.OpenOrCreate);
-        //        StreamWriter sw = new StreamWriter(fs);
-        //        sw.WriteLine("#");
-        //        sw.WriteLine("#Config for PC-Timer");
-        //        sw.WriteLine("#");
-        //        sw.WriteLine(text);
-
-
-        //        sw.Close();
-        //        fs.Close();
-        //    }
-        //    else
-        //    {
-        //        String line;
-        //        bool foundLine = false;
-        //        FileStream fs = new FileStream(path + file, FileMode.OpenOrCreate);
-        //        StreamReader sr = new StreamReader(fs);
-        //        StreamWriter sw = new StreamWriter(fs);
-        //        line = sr.ReadLine();
-
-        //        while (line != null)
-        //        {
-        //            string textcheck = text.Substring(0, text.IndexOf("="));
-        //            string linecheck = line;
-        //            if (linecheck.Substring(0, 1) != "#")
-        //            {
-        //                linecheck = linecheck.Substring(0, line.IndexOf("="));
-        //                if (linecheck == textcheck)
-        //                {
-        //                    sw.Flush();
-        //                    sw.WriteLine(text);
-        //                    foundLine = true;
-        //                    break;
-        //                }
-        //            }
-        //            line = sr.ReadLine();
-        //        }
-        //        if (foundLine == false)
-        //        {
-        //            sw.WriteLine(text);
-        //        }
-        //        sw.Close();
-        //        sr.Close();
-        //        fs.Close();
-        //    }
-
-        //}
+        public static void write_lang_settings(string lang) {
+            new XDocument(
+                new XElement("settings",
+                    new XComment("If set to false, no window will show up on startup of this programm"),
+                    new XElement("language", lang)
+                    )
+                )
+                .Save(config_file);
+            }
 
         private void MenRadio_en_Checked(object sender, RoutedEventArgs e) {
             SetLanguageDictionary(new CultureInfo("en-US"));
