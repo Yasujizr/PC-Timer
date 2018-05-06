@@ -8,11 +8,8 @@ Planned:
 - scrollable time for mouse only usage
 
 ToDo / Known Bugs:
-- Save last language to file
 - Better Info MessageBox with more infos (which other Projects are used and who helped)
-- lower the required Framework
 - add a check routine so that the pc don't turn off directly when there time is too low
-- make a better setup
 
 Thanks to:
 - [xceedsoftware](https://github.com/xceedsoftware) for the [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit)
